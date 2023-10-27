@@ -1,4 +1,4 @@
 package main.java.com.example.classes.controller;
-public class TaskController {
+public class ClassController {
   
 }
