@@ -1,17 +1,19 @@
-package main.java.com.example.classes.model;
-import javax.annotation.processing.Generated;
+package com.example.classes.model;
 
-import jakarta.persistence;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "classes")
 public class Class {
   @Id
-  @GeneratedVale(strategy = GeneratedType.AUTO)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
   
   @Column(name = "title")
   private String title;
+
+  @Column(name = "description")
+  private String description;
 
   @Column(name = "taught")
   private boolean taught;
@@ -45,6 +47,9 @@ public class Class {
   }
   public void setTaught(boolean wasTaught){
     this.taught = wasTaught;
+  }
+  public boolean getTaught(){
+    return taught;
   }
 
   @Override
