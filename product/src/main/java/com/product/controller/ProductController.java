@@ -31,7 +31,7 @@ public class ProductController {
         return new ArrayList<>();
     }
 
-    @GetMapping("/below-peice/{maxPrice}")
+    @GetMapping("/below-price/{maxPrice}")
     public List<Product> geProductsBelowMaxPrice(@PathVariable double maxPrice){
         return productRepository.findProductsBelowMaxPrice(maxPrice);
     }
