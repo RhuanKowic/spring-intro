@@ -21,9 +21,12 @@ public class ProductController {
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
     }
-
+    @GetMapping
+    public List<Product> getAllProducts(){
+        return productRepository.findAll();
+    }
     @GetMapping("/category/{categoryId}")
-    public List<Product> geProductsByCategory(@PathVariable Long categoryId){
+    public List<Product> getProductsByCategory(@PathVariable Long categoryId){
         Category category = categoryRepository.findById(categoryId).orElse(null);
         if(category != null){
             return productRepository.findByCategory(category);
