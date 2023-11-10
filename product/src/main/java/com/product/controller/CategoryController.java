@@ -54,4 +54,8 @@ public class CategoryController {
         categoryRepository.deleteById(id);
     }
 
+    @GetMapping("/minProductCount")
+    public List<Category> getCategoriesByMinProductCount(@RequestParam int minProductCount){
+        return (List<Category>) categoryRepository.findCategoryByMinProuductCount(minProductCount);
+    }
 }
