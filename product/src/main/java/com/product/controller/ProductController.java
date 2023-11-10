@@ -38,4 +38,9 @@ public class ProductController {
     public List<Product> geProductsBelowMaxPrice(@PathVariable double maxPrice){
         return productRepository.findProductsBelowMaxPrice(maxPrice);
     }
+
+    @GetMapping("/byCategoryName/{categoryName}")
+    public List<Product> getProductsByCategoryName(@PathVariable String categoryName){
+        return productRepository.findProductsByCategoryName(categoryName);
+    }
 }
