@@ -2,6 +2,7 @@ package com.product.controller;
 
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+
 import com.product.model.Category;
 import com.product.repository.CategoryRepository;
 
@@ -39,7 +40,7 @@ public class CategoryController {
         return categoryRepository.save(category);
     }
 
-    @PutMapping("id")
+    @PutMapping("/{id}")
     public Category updateCategory(@PathVariable Long id, @RequestBody Category updatedCategory){
         Category existingCategory = categoryRepository.findById(id).orElse(null);
         if (existingCategory != null) {
@@ -55,7 +56,7 @@ public class CategoryController {
     }
 
     @GetMapping("/minProductCount")
-    public List<Category> getCategoriesByMinProductCount(@RequestParam int minProductCount){
-        return (List<Category>) categoryRepository.findCategoryByMinProuductCount(minProductCount);
+    public Category getCategoriesByMinProductCount(@RequestParam int minProductCount){
+        return categoryRepository.findCategoryByMinProuductCount(minProductCount);
     }
 }

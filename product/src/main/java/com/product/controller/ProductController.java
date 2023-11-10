@@ -25,6 +25,7 @@ public class ProductController {
     public List<Product> getAllProducts(){
         return productRepository.findAll();
     }
+    
     @GetMapping("/category/{categoryId}")
     public List<Product> getProductsByCategory(@PathVariable Long categoryId){
         Category category = categoryRepository.findById(categoryId).orElse(null);

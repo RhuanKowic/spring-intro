@@ -7,10 +7,10 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, name = "name")
+    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, name =  "price")
+    @Column(nullable = false)
     private double price;
 
     @ManyToOne
