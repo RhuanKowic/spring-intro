@@ -56,7 +56,7 @@ public class CategoryController {
     }
 
     @GetMapping("/minProductCount")
-    public Category getCategoriesByMinProductCount(@RequestParam int minProductCount){
-        return categoryRepository.findCategoryByMinProuductCount(minProductCount);
+    public List<Category> getCategoriesByMinProductCount(@RequestParam int minProductCount){
+        return categoryRepository.findCategoryByMinProductCount(minProductCount);
     }
 }

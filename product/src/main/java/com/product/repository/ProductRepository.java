@@ -13,6 +13,6 @@ public interface ProductRepository  extends JpaRepository<Product, Long>{
 
     @Query(value = "SELECT * FROM product p where p.price < :maxPrice", nativeQuery = true)
     List<Product> findProductsBelowMaxPrice(@Param("maxPrice") double maxPrice);
-    @Query(value = "SELECT * FROM Product p JOIN p.category c WHERE c.nome = :nameCategory", nativeQuery = true)
+    @Query(value = "SELECT product.* FROM product JOIN category ON product.category_id = category.id WHERE category.name = :nameCategory", nativeQuery = true)
     List<Product> findProductsByCategoryName(@Param("nameCategory") String nameCategory);
 }
